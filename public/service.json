@@ -1,15 +1,11 @@
 [
       {
-            "id": 1,
             "name":"DRILS" ,
             "img":"https://i.ibb.co/5vJd3LX/01.jpg" ,
             "price":95 ,
             "description":"cordless drill: The electric drill adopts a pure copper motor, with strong power, fast speed and long service life. Lightweight and compact, the cordless drill is easy to carry around" ,
-            "quantity": 90
-            
-      },
-      {
-            "id": 2,
+            "quantity": 90},
+            {
             "name":"SCREDDRIVERS" ,
             "img": "https://i.ibb.co/gg1ZF5n/02.jpg",
             "price": 86 ,
@@ -18,7 +14,6 @@
             
       },
       {
-            "id": 3,
             "name":"RIVET GUNSRIVET " ,
             "img": "https://i.ibb.co/b1QWWCB/03.jpg" ,
             "price":55 ,
@@ -27,7 +22,6 @@
             
       },
       {
-            "id": 4,
             "name":"BALANCES" ,
             "img": "https://i.ibb.co/syDPR39/04.jpg",
             "price": 65,
@@ -36,7 +30,6 @@
             
       },
       {
-            "id": 5,
             "name":"POLISHERS ",
             "img": "https://i.ibb.co/ZVsT1K7/05.jpg",
             "price":71 ,
@@ -45,7 +38,6 @@
             
       },
       {
-            "id": 6,
             "name": "HOSE REELS",
             "img":"https://i.ibb.co/1X5YDC0/06.jpg" ,
             "price": 86 ,
@@ -54,7 +46,6 @@
             
       },
       {
-            "id": 7,
             "name":"SAWAS" ,
             "img":"https://i.ibb.co/LpSZjgk/07.jpg" ,
             "price": 83 ,
@@ -63,7 +54,6 @@
             
       },
       {
-            "id": 8,
             "name":"AIT NUTURENERS" ,
             "img":"https://i.ibb.co/y6CSvRM/08.jpg" ,
             "price": 85 ,

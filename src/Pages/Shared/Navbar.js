@@ -1,10 +1,17 @@
 
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../../Firebaseinit";
 import img1 from '../../images/logo.png'
 
 
 const Navbar = () => {
+      const [user] = useAuthState(auth)
+      const logout = () => {
+            signOut(auth)
+      }
   const menuItems = (
     <>
       <li>
@@ -13,22 +20,31 @@ const Navbar = () => {
       <li>
         <Link to="/about">BLOG</Link>
       </li>
-      
+
       <li>
-        <Link to="/reviews">Reviews</Link>
+        <Link to="/review">REVIEWS</Link>
       </li>
-     
       <li>
-        
-          <Link to="/login">Login</Link>
-        
+        <Link to="/portfulio">PORTFOLIO</Link>
+      </li>
+
+      <li>
+        {user && <Link to="/dashboard">DASHBOARD</Link>}
+
+        {user ? (
+          <button className="btn btn-active btn-ghost" onClick={logout}>
+            Sign Out
+          </button>
+        ) : (
+          <Link to="/login">LOGIN</Link>
+        )}
       </li>
     </>
   );
 
   return (
-    <div sticky="top">
-      <div className="navbar  bg-gray-300">
+    <div>
+      <div className="navbar  bg-gray-200">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex="0" className="btn btn-ghost  lg:hidden">
@@ -56,7 +72,7 @@ const Navbar = () => {
           </div>
           <img src={img1} alt="" />
         </div>
-        <div className="navbar-end hidden lg:flex">
+        <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">{menuItems}</ul>
         </div>
         <div className="navbar-end">
@@ -71,14 +87,8 @@ const Navbar = () => {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-            >
-              {/* <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              /> */}
-            </svg>
+            ></svg>
+            
           </label>
         </div>
       </div>

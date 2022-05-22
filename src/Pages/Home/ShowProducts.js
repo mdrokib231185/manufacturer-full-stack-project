@@ -10,7 +10,7 @@ const ShowProducts = ({ tool }) => {
             <p className="text-primary">Description: {description}</p>
             <h1 className='text-xl'>Price: ${price}</h1>
             <h1 className='text-xl'>Available: {quantity}</h1>
-            <button className="btn btn-primary">Buy Now</button>
+            <button className="btn btn-primary w-full">Buy Now</button>
           </div>
         </div>
       );
