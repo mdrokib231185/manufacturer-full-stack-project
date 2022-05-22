@@ -27,8 +27,8 @@ const Navbar = () => {
   );
 
   return (
-    <div>
-      <div className="navbar bg-gray-300">
+    <div sticky="top">
+      <div className="navbar  bg-gray-300">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex="0" className="btn btn-ghost  lg:hidden">
@@ -56,7 +56,7 @@ const Navbar = () => {
           </div>
           <img src={img1} alt="" />
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-end hidden lg:flex">
           <ul className="menu menu-horizontal p-0">{menuItems}</ul>
         </div>
         <div className="navbar-end">

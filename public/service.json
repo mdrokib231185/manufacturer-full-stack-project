@@ -1,0 +1,74 @@
+[
+      {
+            "id": 1,
+            "name":"DRILS" ,
+            "img":"https://i.ibb.co/5vJd3LX/01.jpg" ,
+            "price":95 ,
+            "description":"cordless drill: The electric drill adopts a pure copper motor, with strong power, fast speed and long service life. Lightweight and compact, the cordless drill is easy to carry around" ,
+            "quantity": 90
+            
+      },
+      {
+            "id": 2,
+            "name":"SCREDDRIVERS" ,
+            "img": "https://i.ibb.co/gg1ZF5n/02.jpg",
+            "price": 86 ,
+            "description":"TECKMAN 10IN1 BIG SIZE TORX SECURITY SCREWDRIVER SET WHAT'S THE DIFFERENCE WITH OTHER SMALL TORX KIT? [BIGGER AND MORE SIZE]: All made with big size" ,
+            "quantity": 80
+            
+      },
+      {
+            "id": 3,
+            "name":"RIVET GUNSRIVET " ,
+            "img": "https://i.ibb.co/b1QWWCB/03.jpg" ,
+            "price":55 ,
+            "description":"An alternative to pneumatic and hand riveters, our specialist puts to test this battery powered rivet gun from Proferred (BL18DR). Lightweight at 6.5 pounds." ,
+            "quantity":55 
+            
+      },
+      {
+            "id": 4,
+            "name":"BALANCES" ,
+            "img": "https://i.ibb.co/syDPR39/04.jpg",
+            "price": 65,
+            "description":"TECKMAN 10IN1 BIG SIZE TORX SECURITY SCREWDRIVER SET WHAT'S THE DIFFERENCE WITH OTHER SMALL TORX KIT? [BIGGER AND MORE SIZE]: All made with big size" ,
+            "quantity": 50
+            
+      },
+      {
+            "id": 5,
+            "name":"POLISHERS ",
+            "img": "https://i.ibb.co/ZVsT1K7/05.jpg",
+            "price":71 ,
+            "description":"TECKMAN 10IN1 BIG SIZE TORX SECURITY SCREWDRIVER SET WHAT'S THE DIFFERENCE WITH OTHER SMALL TORX KIT? [BIGGER AND MORE SIZE]: All made with big size" ,
+            "quantity": 40
+            
+      },
+      {
+            "id": 6,
+            "name": "HOSE REELS",
+            "img":"https://i.ibb.co/1X5YDC0/06.jpg" ,
+            "price": 86 ,
+            "description": "TECKMAN 10IN1 BIG SIZE TORX SECURITY SCREWDRIVER SET WHAT'S THE DIFFERENCE WITH OTHER SMALL TORX KIT? [BIGGER AND MORE SIZE]: All made with big size" ,
+            "quantity": 25
+            
+      },
+      {
+            "id": 7,
+            "name":"SAWAS" ,
+            "img":"https://i.ibb.co/LpSZjgk/07.jpg" ,
+            "price": 83 ,
+            "description": "TECKMAN 10IN1 BIG SIZE TORX SECURITY SCREWDRIVER SET WHAT'S THE DIFFERENCE WITH OTHER SMALL TORX KIT? [BIGGER AND MORE SIZE]: All made with big size",
+            "quantity": 45
+            
+      },
+      {
+            "id": 8,
+            "name":"AIT NUTURENERS" ,
+            "img":"https://i.ibb.co/y6CSvRM/08.jpg" ,
+            "price": 85 ,
+            "description": "TECKMAN 10IN1 BIG SIZE TORX SECURITY SCREWDRIVER SET WHAT'S THE DIFFERENCE WITH OTHER SMALL TORX KIT? [BIGGER AND MORE SIZE]: All made with big size",
+            "quantity": 48
+            
+      }
+]
