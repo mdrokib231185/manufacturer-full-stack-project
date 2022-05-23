@@ -5,6 +5,7 @@ import DashBoard from "./Pages/DashBoard/DashBoard";
 
 import Home from "./Pages/Home/Home";
 import MyPortfulio from "./Pages/Home/MyPortfulio";
+import ProductsDetails from "./Pages/Home/ProductsDetails";
 import Review from "./Pages/Home/Review";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Login/Register";
@@ -19,9 +20,9 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="home" element={<Home></Home>}></Route>
-        <Route path="about" element={<About></About>}></Route>
-        <Route path="review" element={<Review></Review>}></Route>
+        <Route path="/home" element={<Home></Home>}></Route>
+        <Route path="/about" element={<About></About>}></Route>
+        <Route path="/review" element={<Review></Review>}></Route>
         <Route
           path="dashboard"
           element={
@@ -30,9 +31,17 @@ function App() {
             </RequireAuth>
           }
         ></Route>
-        <Route path="portfulio" element={<MyPortfulio></MyPortfulio>}></Route>
-        <Route path="login" element={<Login></Login>}></Route>
-        <Route path="register" element={<Register></Register>}></Route>
+        <Route
+          path="/product/:productId"
+          element={
+            <RequireAuth>
+             <ProductsDetails></ProductsDetails>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route path="/portfulio" element={<MyPortfulio></MyPortfulio>}></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/register" element={<Register></Register>}></Route>
         <Route path="*" element={<Pagenotfound></Pagenotfound>}></Route>
       </Routes>
       <Footer></Footer>
