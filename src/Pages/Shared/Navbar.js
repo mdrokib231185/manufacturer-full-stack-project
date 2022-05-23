@@ -72,10 +72,10 @@ const Navbar = () => {
           </div>
           <img src={img1} alt="" />
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-end hidden lg:flex">
           <ul className="menu menu-horizontal p-0">{menuItems}</ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-center">
           <label
             tabIndex="1"
             html="dashboard-sidebar"

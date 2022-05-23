@@ -2,10 +2,13 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import About from "./Pages/About";
 import DashBoard from "./Pages/DashBoard/DashBoard";
+import BookingModal from "./Pages/Home/BookingModal";
+
 
 import Home from "./Pages/Home/Home";
 import MyPortfulio from "./Pages/Home/MyPortfulio";
 import ProductsDetails from "./Pages/Home/ProductsDetails";
+import PurchesModal from "./Pages/Home/PurchesModal";
 import Review from "./Pages/Home/Review";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Login/Register";
@@ -31,14 +34,24 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+
         <Route
           path="/product/:productId"
           element={
             <RequireAuth>
-             <ProductsDetails></ProductsDetails>
+              <ProductsDetails></ProductsDetails>
             </RequireAuth>
           }
         ></Route>
+        <Route
+          path="/checkout/:productId"
+          element={
+            <RequireAuth>
+              <PurchesModal></PurchesModal>
+            </RequireAuth>
+          }
+        ></Route>
+
         <Route path="/portfulio" element={<MyPortfulio></MyPortfulio>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>

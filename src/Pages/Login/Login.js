@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../Firebaseinit";
 import {
   useSignInWithEmailAndPassword,
@@ -9,7 +9,10 @@ import {
 import Loading from "../Shared/Loading";
 
 const Login = () => {
-  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+      const navigate = useNavigate();
+      const location = useLocation();
+      const from = location.state?.from?.pathname || "/";
+      const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
@@ -21,16 +24,20 @@ const Login = () => {
     register,
     formState: { errors },
     handleSubmit,
-      } = useForm();
-      if (loading || gLoading) {
-            return <Loading></Loading>
-      }
+  } = useForm();
+  if (loading || gLoading) {
+    return <Loading></Loading>;
+  }
 
   let signInError;
   if (error || gError) {
     signInError = (
       <p className="text-red-500">{error?.message || gError?.message}</p>
     );
+      }
+      
+  if (user || gUser) {
+    navigate(from, { replace: true });
   }
 
   return (

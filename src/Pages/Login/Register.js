@@ -1,13 +1,20 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
+  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import auth from "../../Firebaseinit";
+import { updateProfile } from "firebase/auth";
+import Loading from "../Shared/Loading";
 
 const Register = () => {
+const location = useLocation();
+const navigate = useNavigate();
+const from = location.state?.from?.pathname || "/";
+
   const {
     register,
     formState: { errors },
@@ -16,9 +23,34 @@ const Register = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
+
+  
+      let signInError;
+
+      if (loading || gLoading || updating) {
+        return <Loading></Loading>;
+      }
+
+      if (error || gError || updateError) {
+        signInError = (
+          <p className="text-red-500">
+            <small>
+              {error?.message || gError?.message || updateError?.message}
+            </small>
+          </p>
+        );
+  }
+  if (user || gUser) {
+    navigate(from, { replace: true });
+  }
+
+     
+  
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
+     await updateProfile({ displayName: data.name });
     
   };
 
@@ -117,7 +149,7 @@ const Register = () => {
               </label>
             </div>
 
-            {/* {signInError} */}
+            {signInError}
             <input
               className="btn w-full btn-primary text-white"
               type="submit"
