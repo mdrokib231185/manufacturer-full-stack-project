@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../Firebaseinit";
+import "react-toastify/dist/ReactToastify.css";
 import {
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import Loading from "../Shared/Loading";
+import { toast, ToastContainer } from "react-toastify";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 const Login = () => {
       const navigate = useNavigate();
       const location = useLocation();
-      const from = location.state?.from?.pathname || "/";
-      const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const from = location.state?.from?.pathname || "/";
+    const emailRef = useRef("");
+  const email = emailRef.current.value;
 
+      const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+ const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
@@ -39,6 +46,15 @@ const Login = () => {
   if (user || gUser) {
     navigate(from, { replace: true });
   }
+    const handelReset = async () => {
+      const email = emailRef.current.value;
+      if (email) {
+        await sendPasswordResetEmail(email);
+        toast.success("Sent Email");
+      } else {
+        toast.warning("Please Enter a Email");
+      }
+    };
 
   return (
     <div className="flex h-screen justify-center items-center">
@@ -128,11 +144,18 @@ const Login = () => {
           </p>
           <div className="divider">OR</div>
           <button
+            onClick={handelReset}
+            className="btn btn-link text-decoration-none"
+          >
+            Forget Password
+          </button>
+          <button
             onClick={() => signInWithGoogle()}
             className="btn btn-success"
           >
             Continue with Google
           </button>
+          <ToastContainer></ToastContainer>
         </div>
       </div>
     </div>

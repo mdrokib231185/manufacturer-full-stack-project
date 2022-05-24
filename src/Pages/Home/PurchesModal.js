@@ -1,10 +1,16 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import auth from "../../Firebaseinit";
 import useProducts from "../Hooks/useProducts";
 
 const PurchesModal = () => {
+    const {
+      register,
+      formState: { errors },
+      handleSubmit,
+    } = useForm();
   const { productId } = useParams();
   const [product] = useProducts(productId);
   // const { name, price } = items
@@ -13,24 +19,81 @@ const PurchesModal = () => {
     event.preventDefault();
   };
   return (
-    <div className="w-50 mx-auto">
-      
+    <div className="flex h-screen justify-center items-center">
+      <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card-body">
+          <h2 className="text-center text-2xl font-bold">PURCHES CONFIRM</h2>
+          <form>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Your Name"
+                value={user?.displayName}
+                className="input input-bordered w-full max-w-xs"
+                disabled
+              />
+            </div>
 
-      <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-      <div class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box">
-          <h3 class="font-bold text-lg">
-            Congratulations random Interner user!
-          </h3>
-          <p class="py-4">
-            You've been selected for a chance to get one year of subscription to
-            use Wikipedia for free!
-          </p>
-          <div class="modal-action">
-            <label for="my-modal-6" class="btn">
-              Yay!
-            </label>
-          </div>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Email</span>
+              </label>
+              <input
+                type="email"
+                placeholder="Your Email"
+                value={user?.email}
+                className="input input-bordered w-full max-w-xs"
+                readOnly
+                disabled
+              />
+              </div>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Product</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Your Email"
+                value={product.name}
+                className="input input-bordered w-full max-w-xs"
+                readOnly
+                disabled
+              />
+              
+            </div>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Address</span>
+              </label>
+              <input
+                type="email"
+                placeholder="Your Address"
+                // value={product.name}
+                className="input input-bordered w-full max-w-xs"
+                
+              />
+              
+            </div>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Phone</span>
+              </label>
+              <input
+                type="number"
+                placeholder="number"
+                className="input input-bordered w-full max-w-xs"
+              />
+            </div>
+
+            <input
+              className="btn w-full btn-primary text-white"
+              type="submit"
+              value="Purches Now"
+            />
+          </form>
         </div>
       </div>
     </div>

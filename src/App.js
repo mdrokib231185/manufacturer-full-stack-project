@@ -1,8 +1,10 @@
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "./App.css";
 import About from "./Pages/About";
 import DashBoard from "./Pages/DashBoard/DashBoard";
 import BookingModal from "./Pages/Home/BookingModal";
+import "react-toastify/dist/ReactToastify.css";
 
 
 import Home from "./Pages/Home/Home";
@@ -57,6 +59,7 @@ function App() {
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="*" element={<Pagenotfound></Pagenotfound>}></Route>
       </Routes>
+      <ToastContainer></ToastContainer>
       <Footer></Footer>
     </div>
   );
