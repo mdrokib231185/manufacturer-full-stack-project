@@ -1,13 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const ShowProducts = ({ tool, setProducts }) => {
+const ShowProducts = ({ tool }) => {
   const { _id, name, img, description, price, quantity } = tool;
   const navigate = useNavigate()
   
 
-  const navigateToProductsDetails = (id) => {
-    navigate(`/product/${id}`);
+  const navigateToProductsDetails = (_id) => {
+    navigate(`/product/${_id}`);
   };
   return (
     <div className="shadow-lg shadow-indigo-500/40 mx-2">
@@ -24,14 +24,7 @@ const ShowProducts = ({ tool, setProducts }) => {
         >
           BUY {name}
         </button>
-        {/* <label
-          
-          onClick={() => setProducts(tool)}
-          htmlFor="booking-modal"
-          className="btn-primary btn modal-button"
-        >
-         PURCHES
-        </label> */}
+        
       </div>
     </div>
   );

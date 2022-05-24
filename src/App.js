@@ -3,14 +3,11 @@ import { ToastContainer } from "react-toastify";
 import "./App.css";
 import About from "./Pages/About";
 import DashBoard from "./Pages/DashBoard/DashBoard";
-import BookingModal from "./Pages/Home/BookingModal";
 import "react-toastify/dist/ReactToastify.css";
-
 
 import Home from "./Pages/Home/Home";
 import MyPortfulio from "./Pages/Home/MyPortfulio";
-import ProductsDetails from "./Pages/Home/ProductsDetails";
-import PurchesModal from "./Pages/Home/PurchesModal";
+
 import Review from "./Pages/Home/Review";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Login/Register";
@@ -18,6 +15,7 @@ import Pagenotfound from "./Pages/Pagenotfound";
 import RequireAuth from "./Pages/RequireAuth";
 import Footer from "./Pages/Shared/Footer";
 import Navbar from "./Pages/Shared/Navbar";
+import BookingProducts from "./Pages/Home/BookingProducts";
 
 function App() {
   return (
@@ -41,18 +39,11 @@ function App() {
           path="/product/:productId"
           element={
             <RequireAuth>
-              <ProductsDetails></ProductsDetails>
+              <BookingProducts></BookingProducts>
             </RequireAuth>
           }
         ></Route>
-        <Route
-          path="/checkout/:productId"
-          element={
-            <RequireAuth>
-              <PurchesModal></PurchesModal>
-            </RequireAuth>
-          }
-        ></Route>
+        
 
         <Route path="/portfulio" element={<MyPortfulio></MyPortfulio>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>

@@ -1,24 +1,19 @@
-import React, {  useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import Loading from "../Shared/Loading";
-import BookingModal from "./BookingModal";
+
 
 import ShowProducts from "./ShowProducts";
 
-const Tools = () => {
-  // const [tools, setTools] = useState([]);
-  const [ products, setProducts ] = useState(null);
+const Tools = ({isLoading}) => {
+  const [ tools, setTools ] =useState([])
   
-const {
-  data: tools,
-  isLoading,
-  refetch
-  
-} = useQuery("products", () =>
-  fetch(`http://localhost:5000/products`).then((res) =>
-    res.json()
-  )
-    );
+    useEffect(() => {
+  fetch(`http://localhost:5000/products`)
+    .then((res) => res.json())
+    .then((data) => setTools(data));
+}, []);
+
   if(isLoading){
     return <Loading></Loading>
   }
@@ -34,15 +29,10 @@ console.log(tools);
           <ShowProducts
             tool={tool}
             key={tool.id}
-            setProducts={setProducts}
+            
           ></ShowProducts>
         ))}
-        {products &&  (
-          <BookingModal
-            setProducts={setProducts}
-            products={products}
-          ></BookingModal>
-        )}
+      
       </div>
     </div>
   );
