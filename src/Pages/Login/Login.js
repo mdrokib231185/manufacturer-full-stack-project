@@ -14,19 +14,18 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import useToken from "../../Hooks/useToken";
 
 const Login = () => {
-      const navigate = useNavigate();
-      const location = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-    const emailRef = useRef("");
+  const emailRef = useRef("");
   const email = emailRef.current.value;
 
-
-      const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
-   
+
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-   const [token] = useToken(user || gUser);
+  const [token] = useToken(user || gUser);
 
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
@@ -45,20 +44,20 @@ const Login = () => {
     signInError = (
       <p className="text-red-500">{error?.message || gError?.message}</p>
     );
-      }
-      
+  }
+
   if (token) {
     navigate(from, { replace: true });
   }
-    const handelReset = async () => {
-      const email = emailRef.current.value;
-      if (email) {
-        await sendPasswordResetEmail(email);
-        toast.success("Sent Email");
-      } else {
-        toast.warning("Please Enter a Email");
-      }
-    };
+  const handelReset = async () => {
+    const email = emailRef.current.value;
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast.success("Sent Email");
+    } else {
+      toast.warning("Please Enter a Email");
+    }
+  };
 
   return (
     <div className="flex h-screen justify-center items-center">
