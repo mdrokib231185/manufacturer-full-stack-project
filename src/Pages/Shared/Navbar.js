@@ -10,7 +10,8 @@ import img1 from '../../images/logo.png'
 const Navbar = () => {
       const [user] = useAuthState(auth)
       const logout = () => {
-            signOut(auth)
+        signOut(auth)
+        localStorage.removeItem('accessToken')
       }
   const menuItems = (
     <>

@@ -11,6 +11,7 @@ import {
 import Loading from "../Shared/Loading";
 import { toast, ToastContainer } from "react-toastify";
 import { sendPasswordResetEmail } from "firebase/auth";
+import useToken from "../../Hooks/useToken";
 
 const Login = () => {
       const navigate = useNavigate();
@@ -19,10 +20,13 @@ const Login = () => {
     const emailRef = useRef("");
   const email = emailRef.current.value;
 
+
       const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
- const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
+   
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+   const [token] = useToken(user || gUser);
 
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
@@ -43,7 +47,7 @@ const Login = () => {
     );
       }
       
-  if (user || gUser) {
+  if (token) {
     navigate(from, { replace: true });
   }
     const handelReset = async () => {

@@ -44,7 +44,7 @@ const Register = () => {
     );
   }
   if (token) {
-    // navigate('/home')
+    navigate(from, { replace: true });
   }
 
   const onSubmit = async (data) => {
