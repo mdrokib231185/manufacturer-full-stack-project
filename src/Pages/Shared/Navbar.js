@@ -22,9 +22,6 @@ const Navbar = () => {
       </li>
 
       <li>
-        <Link to="/review">REVIEWS</Link>
-      </li>
-      <li>
         <Link to="/portfulio">PORTFOLIO</Link>
       </li>
 
@@ -88,9 +85,31 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             ></svg>
-            
           </label>
         </div>
+      </div>
+      <div className="navbar-end">
+        <label
+          for="my-drawer-2"
+          tabIndex="0"
+          className="btn btn-ghost  lg:hidden"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h8m-8 6h16"
+            />
+          </svg>
+        </label>
+        
       </div>
     </div>
   );

@@ -16,6 +16,9 @@ import RequireAuth from "./Pages/RequireAuth";
 import Footer from "./Pages/Shared/Footer";
 import Navbar from "./Pages/Shared/Navbar";
 import BookingProducts from "./Pages/Home/BookingProducts";
+import MyOrders from "./Pages/DashBoard/MyOrders";
+import MyReview from "./Pages/DashBoard/MyReview";
+import MyProfile from "./Pages/DashBoard/MyProfile";
 
 function App() {
   return (
@@ -25,7 +28,7 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/about" element={<About></About>}></Route>
-        <Route path="/review" element={<Review></Review>}></Route>
+
         <Route
           path="dashboard"
           element={
@@ -33,7 +36,11 @@ function App() {
               <DashBoard></DashBoard>
             </RequireAuth>
           }
-        ></Route>
+        >
+          <Route index element={<MyOrders></MyOrders>}></Route>
+          <Route path="review" element={<MyReview></MyReview>}></Route>
+          <Route path="profile" element={<MyProfile></MyProfile>}></Route>
+        </Route>
 
         <Route
           path="/product/:productId"
@@ -43,7 +50,6 @@ function App() {
             </RequireAuth>
           }
         ></Route>
-        
 
         <Route path="/portfulio" element={<MyPortfulio></MyPortfulio>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>

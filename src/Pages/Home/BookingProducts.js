@@ -12,20 +12,25 @@ const BookingProducts = () => {
   const [items, setItems] = useState([]);
   const { _id, img, name, price, description } = items;
   const [quantity, setQuantity] = useState(10);
+  const [totalPrice, setTotalPrice] = useState();
+ 
 
   const handelDecrement = () => {
     if (quantity > 9) {
       setQuantity((prevCount) => prevCount - 1);
+      setTotalPrice(quantity * product.price);
+
     }
   };
 
   const handelIncrement = () => {
     if (quantity < product.quantity + 1) {
       setQuantity((prevCount) => prevCount + 1);
+      setTotalPrice(quantity * product.price);
     }
   };
   if (quantity == 9) {
-    toast.error("Minimum added 10");
+    toast.error("Minimum added 11");
   }
 
   if (quantity == product.quantity + 1) {
@@ -37,7 +42,7 @@ const BookingProducts = () => {
     const booking = {
       productId: _id,
       product: name,
-      price,
+      totalPrice,
       order: quantity,
       customer: user.email,
       customerName: user.displayName,
@@ -77,8 +82,9 @@ const BookingProducts = () => {
         <h1 className="text-2xl text-red-500">NAME: {name}</h1>
         <p className="text-primary">Description: {description}</p>
         <p className="text-secondary text-3xl">Available: {product.quantity}</p>
-        <p className="text-secondary text-2xl">Mimum Order: 10</p>
-        <h1 className="text-xl">Price: ${price}</h1>
+        <p className="text-secondary text-2xl">Mimum Order: 11</p>
+        <h1 className="text-xl">Per Price: ${price}</h1>
+        {/* <h1 className="text-xl">Price: ${total}</h1> */}
 
         <div className="input-group justify-center">
           <button
@@ -169,7 +175,7 @@ const BookingProducts = () => {
                 />
               </div>
               <input
-                disabled={quantity < 10 || quantity > product.quantity}
+                disabled={quantity < 11 || quantity > product.quantity}
                 type="submit"
                 value="Submit"
                 className="btn mt-5 btn-secondary input-bordered w-full max-w-xs"

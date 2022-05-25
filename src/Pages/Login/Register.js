@@ -9,11 +9,12 @@ import {
 import auth from "../../Firebaseinit";
 import { updateProfile } from "firebase/auth";
 import Loading from "../Shared/Loading";
+import useToken from "../../Hooks/useToken";
 
 const Register = () => {
-const location = useLocation();
-const navigate = useNavigate();
-const from = location.state?.from?.pathname || "/";
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
   const {
     register,
@@ -25,33 +26,30 @@ const from = location.state?.from?.pathname || "/";
     useCreateUserWithEmailAndPassword(auth);
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
+  const [token] = useToken(user || gUser);
 
-  
-      let signInError;
+  let signInError;
 
-      if (loading || gLoading || updating) {
-        return <Loading></Loading>;
-      }
-
-      if (error || gError || updateError) {
-        signInError = (
-          <p className="text-red-500">
-            <small>
-              {error?.message || gError?.message || updateError?.message}
-            </small>
-          </p>
-        );
-  }
-  if (user || gUser) {
-    navigate(from, { replace: true });
+  if (loading || gLoading || updating) {
+    return <Loading></Loading>;
   }
 
-     
-  
+  if (error || gError || updateError) {
+    signInError = (
+      <p className="text-red-500">
+        <small>
+          {error?.message || gError?.message || updateError?.message}
+        </small>
+      </p>
+    );
+  }
+  if (token) {
+    // navigate('/home')
+  }
+
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
-     await updateProfile({ displayName: data.name });
-    
+    await updateProfile({ displayName: data.name });
   };
 
   return (

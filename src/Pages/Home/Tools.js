@@ -17,7 +17,7 @@ const Tools = ({isLoading}) => {
   if(isLoading){
     return <Loading></Loading>
   }
-console.log(tools);
+
   return (
     <div>
       <div className="grid justify-center mt-5">
@@ -28,7 +28,7 @@ console.log(tools);
         {tools.map((tool) => (
           <ShowProducts
             tool={tool}
-            key={tool.id}
+            key={tool._id}
             
           ></ShowProducts>
         ))}
