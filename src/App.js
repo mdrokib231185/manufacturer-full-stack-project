@@ -1,14 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
-import About from "./Pages/About";
+
 import DashBoard from "./Pages/DashBoard/DashBoard";
 import "react-toastify/dist/ReactToastify.css";
 
 import Home from "./Pages/Home/Home";
 import MyPortfulio from "./Pages/Home/MyPortfulio";
 
-import Review from "./Pages/Home/Review";
+
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Login/Register";
 import Pagenotfound from "./Pages/Pagenotfound";
@@ -23,7 +23,8 @@ import User from "./Pages/DashBoard/User";
 import RequireUser from "./Pages/RequireAdmin";
 import ManageAllOrders from "./Pages/DashBoard/ManageAllOrders";
 import Addproducts from "./Pages/DashBoard/Addproducts";
-import Payment from "./Pages/DashBoard/Payment";
+import Blogs from "./Pages/Blogs";
+
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
-        <Route path="/about" element={<About></About>}></Route>
+        <Route path="/blog" element={<Blogs></Blogs>}></Route>
 
         <Route
           path="dashboard"

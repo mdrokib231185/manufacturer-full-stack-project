@@ -21,7 +21,7 @@ const Review = ({ isLoading }) => {
       <h1  className="text-5xl text-secondary text-center">Our Review</h1>
       <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2">
                     {
-                          reviews.map(review => (<ReviewShow
+                          reviews.slice(0,3).map(review => (<ReviewShow
                                 key={review._id}
                                 review={review}
                           ></ReviewShow>))

@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Loading from '../Shared/Loading';
+import ShowProfile from './ShowProfile';
 
-const MyProfile = () => {
+const MyProfile = ({isLoading}) => {
+    const [profiles, setProfiles] = useState([]);
+    // console.log(reviews);
+
+    useEffect(() => {
+      fetch(`http://localhost:5000/profile`)
+        .then((res) => res.json())
+        .then((data) => setProfiles(data));
+    }, []);
+
+    if (isLoading) {
+      return <Loading></Loading>;
+    }
+
       return (
         <div>
-          <h1>My Proffile</h1>
-          <h1>My Name is Rokib hasan I am student at Ph hero batch -5.</h1>
-          <p>My Home district Rangpur, thakurgaon</p>
-          <p>
-            Education Qualification: I am a student Honors 1 st Year Department
-            of Mathematics National Univarsity
-          </p>
-          <p>Linkdin Link:"linkedin.com/in/md-rokib-hasan-16038b22a"</p>
+                  {
+                        profiles.map(profile => (<ShowProfile
+                              key={profile._id}
+                              profile={profile}
+                        ></ShowProfile>))
+          }
         </div>
       );
 };
