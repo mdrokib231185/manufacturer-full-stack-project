@@ -1,4 +1,4 @@
-git hublink clientSide :[https://github.com/programming-hero-web-course1/manufacturer-website-client-side-mdrokib231185](https://github.com/programming-hero-web-course1/manufacturer-website-client-side-mdrokib231185)
+git hub link clientSide :[https://github.com/programming-hero-web-course1/manufacturer-website-client-side-mdrokib231185](https://github.com/programming-hero-web-course1/manufacturer-website-client-side-mdrokib231185)
 
 
 git Hub link ServerSide :[https://github.com/programming-hero-web-course1/manufacturer-website-server-side-mdrokib231185](https://github.com/programming-hero-web-course1/manufacturer-website-server-side-mdrokib231185)
