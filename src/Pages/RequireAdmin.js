@@ -6,25 +6,22 @@ import auth from "../Firebaseinit";
 import useAdmin from "../Hooks/useAdmin";
 import Loading from "./Shared/Loading";
 
-const RequireAdmin = ({ children }) => {
-      const location = useLocation();
-      
-     
+const RequireUser = ({ children }) => {
+  const location = useLocation();
 
   const [user, loading] = useAuthState(auth);
   const [admin, adminLoading] = useAdmin(user);
-  
+
   if (loading || adminLoading) {
     return <Loading></Loading>;
-      }
-      
-      if (admin) {
-        signOut(auth);
-        return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
-        
-      }
-  
+  }
+
+  if (admin) {
+    signOut(auth);
+    return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
+  }
+
   return children;
 };
 
-export default RequireAdmin;
+export default RequireUser;

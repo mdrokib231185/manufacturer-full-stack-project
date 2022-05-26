@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../Firebaseinit";
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
- const {productId: id,} =orders
-  
+  const { id } = orders;
+
   const [user] = useAuthState(auth);
-  
+
   const navigate = useNavigate();
   useEffect(() => {
     if (user) {
@@ -31,7 +31,7 @@ const MyOrders = () => {
         });
     }
   }, [user]);
-  const handelDelete = () => {
+  const handelDelete = (id) => {
     fetch(`http://localhost:5000/booking/${id}`, {
       method: "DELETE",
       headers: {
@@ -59,7 +59,9 @@ const MyOrders = () => {
               <th>Product</th>
               <th>Quantity</th>
               <th>Total Price</th>
+
               <th>Order </th>
+              
             </tr>
           </thead>
           <tbody>
@@ -70,14 +72,27 @@ const MyOrders = () => {
                 <td>{order.product}</td>
                 <td>{order.order}</td>
                 <td>{order.totalPrice}</td>
+
                 <td>
                   <button
-                    onClick={() => handelDelete(id)}
+                    onClick={() => handelDelete()}
                     class="btn btn-xs btn-error"
                   >
                     Delete
                   </button>
                 </td>
+                {/* <td>
+                  {order.totalPrice && !order.paid && (
+                    <Link  to={`/dashboard/payment/${order._id}`}>
+                      <button disabled className="btn btn-secondary btn-xs">
+                        Pay now
+                      </button>
+                    </Link>
+                  )}
+                  {order.totalPrice && order.paid && (
+                    <span className="btn btn-success btn-xs">Paid</span>
+                  )}
+                </td> */}
               </tr>
             ))}
           </tbody>
