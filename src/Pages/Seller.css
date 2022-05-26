@@ -1,0 +1,16 @@
+.h1-tag{
+      color: rgb(239, 109, 2);
+}
+.seller{
+      color: rgb(224, 17, 17);
+}
+.client{
+      color: orangered;
+}
+#box-shadow{
+      box-sizing: border-box;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+
+      
+}

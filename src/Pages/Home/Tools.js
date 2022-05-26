@@ -24,8 +24,8 @@ const Tools = ({isLoading}) => {
         <h1 className="text-center">FEATURED</h1>
         <h1 className="text-5xl text-black-700">CATEGORIES</h1>
       </div>
-      <div className="grid grid-cols-1 mt-5 mb-5 shadow-lg shadow-indigo-500/40 md:grid-cols-2 lg:grid-cols-4 gap-5">
-        {tools.map((tool) => (
+      <div className="grid grid-cols-1 mt-5 mb-5 shadow-lg shadow-indigo-500/40 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {tools.slice(0,6).map((tool) => (
           <ShowProducts
             tool={tool}
             key={tool._id}

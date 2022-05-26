@@ -21,6 +21,8 @@ import MyReview from "./Pages/DashBoard/MyReview";
 import MyProfile from "./Pages/DashBoard/MyProfile";
 import User from "./Pages/DashBoard/User";
 import RequireAdmin from "./Pages/RequireAdmin";
+import ManageAllOrders from "./Pages/DashBoard/ManageAllOrders";
+import Addproducts from "./Pages/DashBoard/Addproducts";
 
 function App() {
   return (
@@ -50,6 +52,12 @@ function App() {
           ></Route>
           <Route path="review" element={<MyReview></MyReview>}></Route>
           <Route path="user" element={<User></User>}></Route>
+          <Route path="user" element={<User></User>}></Route>
+          <Route path="manageOrders" element={<ManageAllOrders></ManageAllOrders>}></Route>
+          <Route
+            path="addProduct"
+            element={<Addproducts></Addproducts>}
+          ></Route>
         </Route>
 
         <Route

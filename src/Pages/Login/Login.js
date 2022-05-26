@@ -30,11 +30,11 @@ const Login = () => {
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
   };
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm();
+const {
+  register,
+  formState: { errors },
+  handleSubmit,
+} = useForm();
   if (loading || gLoading) {
     return <Loading></Loading>;
   }

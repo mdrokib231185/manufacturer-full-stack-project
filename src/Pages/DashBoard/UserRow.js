@@ -1,5 +1,5 @@
-import React from 'react';
-import { toast } from 'react-toastify';
+import React from "react";
+import { toast } from "react-toastify";
 
 const UserRow = ({ user, refetch }) => {
   const { email, role } = user;
@@ -18,8 +18,8 @@ const UserRow = ({ user, refetch }) => {
       })
       .then((data) => {
         if (data.modifiedCount > 0) {
-              toast.success("SuccessFully made an admin");
-              refetch();
+          toast.success("SuccessFully made an admin");
+          refetch();
         }
       });
   };
@@ -28,13 +28,13 @@ const UserRow = ({ user, refetch }) => {
       <td>{user.email}</td>
       <td>
         {role !== "admin" && (
-          <button onClick={makeAdmin} class="btn btn-xs btn-primary">
+          <button onClick={makeAdmin} className="btn btn-xs btn-primary">
             Make Admin
           </button>
         )}
       </td>
       <td>
-        <button class="btn btn-xs btn-secondary">Remove Admin</button>
+        <button className="btn btn-xs btn-secondary">Remove Admin</button>
       </td>
     </tr>
   );

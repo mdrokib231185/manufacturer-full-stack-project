@@ -13,13 +13,11 @@ const BookingProducts = () => {
   const { _id, img, name, price, description } = items;
   const [quantity, setQuantity] = useState(10);
   const [totalPrice, setTotalPrice] = useState();
- 
 
   const handelDecrement = () => {
     if (quantity > 9) {
       setQuantity((prevCount) => prevCount - 1);
       setTotalPrice(quantity * product.price);
-
     }
   };
 
@@ -59,8 +57,8 @@ const BookingProducts = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-            toast("Order added");
-            event.target.reset()
+        toast("Order added");
+        event.target.reset();
       });
   };
 
@@ -73,12 +71,12 @@ const BookingProducts = () => {
   return (
     <div
       onSubmit={handelBooking}
-      class=" d-flex card w-96 mx-auto bg-base-100 shadow-xl"
+      className=" d-flex card w-96 mx-auto bg-base-100 shadow-xl"
     >
-      <figure class="px-10 pt-10">
-        <img src={img} alt="Shoes" class="rounded-xl" />
+      <figure className="px-10 pt-10">
+        <img src={img} alt="Shoes" className="rounded-xl" />
       </figure>
-      <div class="card-body items-center text-center">
+      <div className="card-body items-center text-center">
         <h1 className="text-2xl text-red-500">NAME: {name}</h1>
         <p className="text-primary">Description: {description}</p>
         <p className="text-secondary text-3xl">Available: {product.quantity}</p>

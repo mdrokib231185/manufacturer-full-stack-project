@@ -9,11 +9,11 @@ const User = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-        fetch("http://localhost:5000/user", {
-              method: "GET",
-              headers: {
-                  authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
+    fetch("http://localhost:5000/user", {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
     }).then((res) => res.json())
   );
   if (isLoading) {
@@ -22,14 +22,14 @@ const User = () => {
   return (
     <div>
       All User:{users.length}
-      <div class="overflow-x-auto">
-        <table class="table w-full">
+      <div className="overflow-x-auto">
+        <table className="table w-full">
           <thead>
             <tr>
+              <th>Email</th>
+              <th>Admin Added</th>
               <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
