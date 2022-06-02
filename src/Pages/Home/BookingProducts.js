@@ -47,7 +47,7 @@ const BookingProducts = () => {
       address: event.target.address.value,
       phone: event.target.phone.value,
     };
-    fetch("http://localhost:5000/booking", {
+    fetch("https://secure-mesa-61567.herokuapp.com/booking", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -63,7 +63,7 @@ const BookingProducts = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${productId}`)
+    fetch(`https://secure-mesa-61567.herokuapp.com/products/${productId}`)
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);

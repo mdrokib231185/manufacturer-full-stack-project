@@ -6,16 +6,13 @@
 // import Loading from "../Shared/Loading";
 // import CheckoutForm from "./CheckoutFrom";
 
-
-
-
 // const stripePromise = loadStripe(
 //   "pk_test_51L1TYgCR8RSAsaVLXfj3sTNqFNJ3g3R5ggWXg8puCSvpeBIcTUsp6GFQ3hZ5PVAWXdZe9BYxxCm0or99Tt6JCBhp00rQZ4ebws"
 // );
 
 // const Payment = () => {
 //   const { id } = useParams();
-//   const url = `http://localhost:5000/booking/${id}`;
+//   const url = `https://secure-mesa-61567.herokuapp.com/booking/${id}`;
 
 //   const { data: orders, isLoading } = useQuery(["booking", id], () =>
 //     fetch(url, {

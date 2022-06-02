@@ -14,7 +14,7 @@
 //   const { _id, totalPrice, customer, customerName } = orders;
 
 //   useEffect(() => {
-//     fetch("http://localhost:5000/create-payment-intent", {
+//     fetch("https://secure-mesa-61567.herokuapp.com/create-payment-intent", {
 //       method: "POST",
 //       headers: {
 //         "content-type": "application/json",
@@ -73,12 +73,11 @@
 //       console.log(paymentIntent);
 //       setSuccess("Congrats! Your payment is completed.");
 
-      
 //       const payment = {
 //         orders: _id,
 //         transactionId: paymentIntent.id,
 //       };
-//       fetch(`http://localhost:5000/booking/${_id}`, {
+//       fetch(`https://secure-mesa-61567.herokuapp.com/booking/${_id}`, {
 //         method: "PATCH",
 //         headers: {
 //           "content-type": "application/json",

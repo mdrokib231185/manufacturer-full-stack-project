@@ -27,10 +27,10 @@ I Do This website
 12.find data mongo db and show ui
 
 13. extra section add 
-14. portfulio add
+14. portfolio add
 15. profile add
 16. blog add
 17. 2 other section add
 18. dashbord add
-19.review section add
-20.firebase deploy
+19. review section add
+20. firebase deploy

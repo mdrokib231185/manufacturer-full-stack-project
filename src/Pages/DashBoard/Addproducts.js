@@ -4,25 +4,25 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
 const Addproducts = () => {
-const { register, reset, handleSubmit } = useForm();
-const onSubmit = (data) => {
-  console.log(data);
-  const url = "http://localhost:5000/products";
-  fetch(url, {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify(data),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-          if (data) {
-                toast.success('Product added successfully')
-                reset()
-      }
-    });
-};
+  const { register, reset, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+    const url = "https://secure-mesa-61567.herokuapp.com/products";
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          toast.success("Product added successfully");
+          reset();
+        }
+      });
+  };
 
   return (
     <div>
@@ -110,7 +110,6 @@ const onSubmit = (data) => {
               },
             })}
           />
-         
         </div>
 
         <input
